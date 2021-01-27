@@ -97,3 +97,8 @@ h2 {
   z-index: 1000;
   transition: 0.6s;
 }
+
+.review-container {
+  height: 60vh;
+  overflow: scroll;
+}

@@ -90,7 +90,7 @@ const Header = () => {
       </Nav>
     
   </Navbar.Collapse>
-  {userInfo &&<img style={{width:'60px',height:'60px',borderRadius:'50%'}} src={userInfo && userInfo.image}></img>}
+  {userInfo &&<img style={{width:'60px',height:'60px',borderRadius:'50%',border:'1px solid white'}} src={userInfo && userInfo.image}></img>}
   </Container>
   
 </Navbar>

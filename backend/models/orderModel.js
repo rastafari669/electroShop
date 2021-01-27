@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { type } from 'os';
+
 
 const orderSchema = mongoose.Schema({
     user: {

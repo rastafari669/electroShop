@@ -64,7 +64,9 @@ const ProductScreen = ({match,history}) => {
                 <>
             <Row>
                 <Col md={6}>
-                <Image style={{border: '1px solid black'}} src={product.image} alt={product.name} fluid/>
+                <div className='img-hover-zoom'>
+                <Image className='img-hover-zoom-img' style={{border: '1px solid black'}} src={product.image} alt={product.name} fluid/>
+                </div>
                 </Col>
                 <Col md={3}>
                 <ListGroup variant='flush'>
@@ -140,15 +142,28 @@ const ProductScreen = ({match,history}) => {
                 <Col md={6}>
                 <h2>Reviews</h2>
                 {product.reviews.length === 0 && <Message>No Reviews</Message>}
-                <ListGroup variant='flush'>
+                
+                   {product.reviews.length > 0 ? <div className='review-container'>
                     {product.reviews.map(review =>(
-                        <ListGroup.Item key={review._id}>
-                            <strong>{review.name}</strong>
+                        
+                            <ListGroup.Item  key={review._id}>
+                            <Row>
+                            <Col md={3}>
+                            <p style={{fontWeight:'bold'}}>{review.name}</p>
+                            <img className='img-hover-zoom-img' style={{width:'70px',borderRadius:'50%',border:'1px solid black'}} src={review.image} alt={review.name}></img>
+                            </Col>
+                            <Col md={6}>
+                            <p>{review.comment}</p>
                             <Rating value={review.rating}/>
                             <p>{review.createdAt.substring(0,10)}</p>
-                            <p>{review.comment}</p>
-                        </ListGroup.Item>
-                    ))}
+                            </Col>
+                            
+                            </Row>
+                         </ListGroup.Item>
+                         ))}
+                        </div>: null}
+                     </Col>
+                    <Col style={{marginTop:'50px'}} md={6}>
                     <ListGroup.Item>
                         
                         <h2>Write a customer review {' '}{userInfo && <Button type='button' onClick={() => setFlag(!flag)}><i className='fas fa-plus'></i></Button>}</h2>
@@ -191,7 +206,7 @@ const ProductScreen = ({match,history}) => {
                           <Message>Please <Link to='/login'>Sign In</Link> to write a review </Message>
                           : null}
                     </ListGroup.Item>
-                </ListGroup>
+                
                 </Col>
             </Row>
             </>

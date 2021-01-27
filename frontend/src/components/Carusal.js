@@ -28,14 +28,21 @@ const productTopRated = useSelector(state => state.productTopRated)
     }
     return (
         <>
-        <h1>Top Rated Peoducts</h1>
+        <h1>Top Rated Products</h1>
         <section className='slider'>
             <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlider}/>
             <FaArrowAltCircleRight className='right-arrow' onClick={nextSlider}/>
+
             {products.map((slide,index) => {
               return(
-                  <div style={{border:'1px solid black'}} className={index === current ? 'slide active': 'slide'} key={index}>
-                      {index === current && <Link to={`/product/${slide._id}`}><img className='img-item'  src={slide.image} alt='slide.name'></img></Link>  }
+                  <div  className={index === current ? 'slide active': 'slide'} key={index}>
+                      {index === current &&
+                       <Link to={`/product/${slide._id}`}>
+                       
+                        <img className='img-item'  src={slide.image} alt='slide.name'></img>
+                           
+                      </Link>  
+                      }
        
                   </div>
               ) 
