@@ -2,10 +2,12 @@ import React, {useEffect} from 'react'
 import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import {Row,Col} from 'react-bootstrap';
+import {Row,Col,Container} from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {listProducts} from '../actions/productActions'
 import Paginate from '../components/Paginate'
+import BestReviews from '../components/bestReviews/BestReviews'
+import Map from '../components/map/Map'
 
 
 const HomeScreen = ({match}) => {
@@ -27,7 +29,7 @@ useEffect(() =>{
     return (
         <>
   
-
+         <Container>
             <h1>Latest Products</h1>
             {
             loading ? 
@@ -46,8 +48,9 @@ useEffect(() =>{
             </>
             
             }
-
+            </Container>
            
+            <BestReviews/>
             
         </>
     )

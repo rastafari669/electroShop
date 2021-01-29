@@ -18,7 +18,7 @@ import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 import ImageCover from './components/ImageCover'
-import Map from './components/map/Map'
+
 
 
 
@@ -29,7 +29,7 @@ const App = () => {
     <Header/>
     <Route render={({history}) => <ImageCover history={history}/>}></Route>
     
-    <main className='py-3'>
+    <main className='py-0'>
     <Container>
       <Route path='/order/:id' component={OrderScreen}/>
       <Route path='/payment' component={PaymentScreen}/>
@@ -49,11 +49,12 @@ const App = () => {
       <Route path='/search/:keyword' component={HomeScreen} exact/>
       <Route path='/page/:pageNumber' component={HomeScreen} exact/>
       <Route path='/serach/:keyword/page/:pageNumber' component={HomeScreen} exact/>
-      <Route path='/' component={HomeScreen} exact/>
+      
     </Container>
+    <Route path='/' component={HomeScreen} exact/>
     
     </main>
-    <Map/>
+    
     <Footer/>
      
     </Router>

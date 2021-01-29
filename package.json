@@ -10,7 +10,9 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seader",
-    "data:destroy": "node backend/seader -d"
+    "data:destroy": "node backend/seader -d",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=flase npm install --prefix frontend && npm run build --prefix frontend"
+    
   },
   "author": "Joey Kraus",
   "license": "ISC",
